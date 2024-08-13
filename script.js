@@ -1,26 +1,20 @@
-const arr = [1, 2, 3, 4, 1, 0, 2, 2];
-const divide = (arr, n) => {
-  let result = [];
-  let temp = [];
-  let sum = 0;
-
-  for(let i = 0; i < arr.length; i++){
-    if(sum + arr[i] <= n){
-      sum += arr[i];
-      temp.push(arr[i]);
+// your code here
+function divide(arr, n) {
+let currentSubArray=[];
+let currentSum = 0;
+let result = [];
+for (let item in arr) {
+    if(currentSum + item <= n) {
+            currentSubArray.push(item);
+            currentSum += item;
     } else {
-      result.push(temp);
-      temp = [arr[i]];
-      sum = arr[i];
+        result.push(currentSubArray);
+        currentSubArray = [item];
+        currentSum=item;
     }
-  }
-
-  if(temp.length !== 0) {
-    result.push(temp);
-  }
-
-  return result;
-};
-
-const n = prompt("Enter n: ");
-alert(JSON.stringify(divide(arr, n)));
+    if(currentSubArray.length > 0) {
+        result.push(currentSubArray);
+    }
+}
+return result;
+}
