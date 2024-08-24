@@ -1,4 +1,5 @@
 // your code here
+// your code here
 function divide(arr, n) {
 let currentSubArray=[];
 let currentSum = 0;
